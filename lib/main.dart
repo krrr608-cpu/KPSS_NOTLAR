@@ -1,171 +1,160 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:http/http.dart' as http;
 
 void main() {
-  runApp(const KpssNotlarApp());
+  runApp(const KpssOnlineApp());
 }
 
-class KpssNotlarApp extends StatelessWidget {
-  const KpssNotlarApp({super.key});
+class KpssOnlineApp extends StatelessWidget {
+  const KpssOnlineApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'KPSS NOTLAR',
+      title: 'KPSS CANLI NOTLAR',
       theme: ThemeData(
-        // KPSS için biraz daha ciddi ve okunaklı renkler (Mavi tonları)
+        // Uygulamanın ana rengi
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF1565C0)),
         useMaterial3: true,
       ),
-      home: const AnaSayfa(),
+      home: const NotlarSayfasi(),
     );
   }
 }
 
-class AnaSayfa extends StatefulWidget {
-  const AnaSayfa({super.key});
+class NotlarSayfasi extends StatefulWidget {
+  const NotlarSayfasi({super.key});
 
   @override
-  State<AnaSayfa> createState() => _AnaSayfaState();
+  State<NotlarSayfasi> createState() => _NotlarSayfasiState();
 }
 
-class _AnaSayfaState extends State<AnaSayfa> {
-  List<Map<String, String>> notlar = [];
+class _NotlarSayfasiState extends State<NotlarSayfasi> {
+  List<dynamic> notlar = [];
+  bool yukleniyor = true;
+  bool hataVar = false;
+
+  // SENİN GÖNDERDİĞİN LİNK BURADA:
+  final String url = "https://raw.githubusercontent.com/krrr608-cpu/KPSS_NOTLAR/refs/heads/main/notlar.json";
 
   @override
   void initState() {
     super.initState();
-    _notlariYukle();
+    verileriCek();
   }
 
-  Future<void> _notlariYukle() async {
-    final prefs = await SharedPreferences.getInstance();
-    final String? kayitliNotlar = prefs.getString('kpss_notlari_v1');
-    if (kayitliNotlar != null) {
+  // İnternetten veriyi çeken fonksiyon
+  Future<void> verileriCek() async {
+    setState(() {
+      yukleniyor = true;
+      hataVar = false;
+    });
+
+    try {
+      final response = await http.get(Uri.parse(url));
+      
+      if (response.statusCode == 200) {
+        // Türkçe karakterleri düzgün göstermek için utf8.decode kullanıyoruz
+        final decodedData = json.decode(utf8.decode(response.bodyBytes));
+        setState(() {
+          notlar = decodedData;
+          yukleniyor = false;
+        });
+      } else {
+        throw Exception('Veri yüklenemedi: ${response.statusCode}');
+      }
+    } catch (e) {
+      print("Hata: $e");
       setState(() {
-        notlar = List<Map<String, String>>.from(json.decode(kayitliNotlar));
+        hataVar = true;
+        yukleniyor = false;
       });
     }
-  }
-
-  Future<void> _notlariKaydet() async {
-    final prefs = await SharedPreferences.getInstance();
-    prefs.setString('kpss_notlari_v1', json.encode(notlar));
-  }
-
-  void _notEkle(String ders, String icerik) {
-    setState(() {
-      notlar.insert(0, {'ders': ders, 'icerik': icerik});
-    });
-    _notlariKaydet();
-  }
-
-  void _notSil(int index) {
-    setState(() {
-      notlar.removeAt(index);
-    });
-    _notlariKaydet();
-  }
-
-  void _notEklePenceresiAc() {
-    String dersAdi = "";
-    String notIcerigi = "";
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text("KPSS Notu Ekle"),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            TextField(
-              decoration: const InputDecoration(
-                labelText: "Ders (Örn: Tarih, Vatandaşlık)", 
-                border: OutlineInputBorder()
-              ),
-              onChanged: (val) => dersAdi = val,
-            ),
-            const SizedBox(height: 10),
-            TextField(
-              decoration: const InputDecoration(
-                labelText: "Notun (Örn: Islahat Fermanı...)", 
-                border: OutlineInputBorder()
-              ),
-              maxLines: 4,
-              onChanged: (val) => notIcerigi = val,
-            ),
-          ],
-        ),
-        actions: [
-          TextButton(onPressed: () => Navigator.pop(context), child: const Text("İptal")),
-          FilledButton(
-            onPressed: () {
-              if (dersAdi.isNotEmpty && notIcerigi.isNotEmpty) {
-                _notEkle(dersAdi, notIcerigi);
-                Navigator.pop(context);
-              }
-            },
-            child: const Text("Kaydet"),
-          ),
-        ],
-      ),
-    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("KPSS NOTLAR", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
+        title: const Text("KPSS CANLI NOTLAR", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
         centerTitle: true,
         backgroundColor: Theme.of(context).colorScheme.primary,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.refresh, color: Colors.white),
+            onPressed: verileriCek, // Yenile butonu
+            tooltip: 'Notları Güncelle',
+          )
+        ],
       ),
-      body: notlar.isEmpty
-          ? Center(
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Text(
-                  "Henüz notun yok.\nKPSS çalışmalarını kaydetmek için\n+ butonuna bas!",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.grey[600], fontSize: 16),
-                ),
-              ),
-            )
-          : ListView.builder(
-              padding: const EdgeInsets.all(10),
-              itemCount: notlar.length,
-              itemBuilder: (context, index) {
-                return Card(
-                  elevation: 2,
-                  margin: const EdgeInsets.only(bottom: 10),
-                  child: ListTile(
-                    leading: CircleAvatar(
-                      backgroundColor: Theme.of(context).colorScheme.primaryContainer,
-                      child: Text(
-                        notlar[index]['ders']!.isNotEmpty ? notlar[index]['ders']![0].toUpperCase() : "?",
-                        style: TextStyle(color: Theme.of(context).colorScheme.onPrimaryContainer),
-                      ),
-                    ),
-                    title: Text(notlar[index]['ders']!, style: const TextStyle(fontWeight: FontWeight.bold)),
-                    subtitle: Padding(
-                      padding: const EdgeInsets.only(top: 5.0),
-                      child: Text(notlar[index]['icerik']!),
-                    ),
-                    trailing: IconButton(
-                      icon: const Icon(Icons.delete_outline, color: Colors.red), 
-                      onPressed: () => _notSil(index)
-                    ),
+      body: yukleniyor
+          ? const Center(child: CircularProgressIndicator()) // Yükleniyor simgesi
+          : hataVar
+              ? Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(Icons.wifi_off, size: 60, color: Colors.red),
+                      const SizedBox(height: 10),
+                      const Text("Notlar yüklenemedi.", style: TextStyle(fontSize: 18)),
+                      const Text("İnternet bağlantını kontrol et.", style: TextStyle(color: Colors.grey)),
+                      const SizedBox(height: 20),
+                      ElevatedButton(onPressed: verileriCek, child: const Text("Tekrar Dene"))
+                    ],
                   ),
-                );
-              },
-            ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _notEklePenceresiAc, 
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        foregroundColor: Colors.white,
-        child: const Icon(Icons.add),
-      ),
+                )
+              : notlar.isEmpty 
+                ? const Center(child: Text("Henüz hiç not eklenmemiş."))
+                : ListView.builder(
+                  padding: const EdgeInsets.all(12),
+                  itemCount: notlar.length,
+                  itemBuilder: (context, index) {
+                    final not = notlar[index];
+                    return Card(
+                      elevation: 3,
+                      margin: const EdgeInsets.only(bottom: 12),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            // Ders Adı Etiketi
+                            Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                              decoration: BoxDecoration(
+                                color: Theme.of(context).colorScheme.primaryContainer,
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Text(
+                                not['ders'] ?? 'Genel',
+                                style: TextStyle(
+                                  color: Theme.of(context).colorScheme.onPrimaryContainer,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 12
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: 10),
+                            // Konu Başlığı
+                            Text(
+                              not['baslik'] ?? 'Başlıksız',
+                              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black87),
+                            ),
+                            const Divider(thickness: 1, height: 20),
+                            // Not İçeriği
+                            Text(
+                              not['icerik'] ?? '',
+                              style: const TextStyle(fontSize: 16, color: Colors.black87, height: 1.4),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                ),
     );
   }
 }
