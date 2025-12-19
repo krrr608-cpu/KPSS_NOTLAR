@@ -15,7 +15,6 @@ class KpssOnlineApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'KPSS CANLI NOTLAR',
       theme: ThemeData(
-        // Uygulamanın ana rengi
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF1565C0)),
         useMaterial3: true,
       ),
@@ -36,7 +35,7 @@ class _NotlarSayfasiState extends State<NotlarSayfasi> {
   bool yukleniyor = true;
   bool hataVar = false;
 
-  // SENİN GÖNDERDİĞİN LİNK BURADA:
+  // LİNKİN AYNI KALIYOR
   final String url = "https://raw.githubusercontent.com/krrr608-cpu/KPSS_NOTLAR/refs/heads/main/notlar.json";
 
   @override
@@ -45,7 +44,6 @@ class _NotlarSayfasiState extends State<NotlarSayfasi> {
     verileriCek();
   }
 
-  // İnternetten veriyi çeken fonksiyon
   Future<void> verileriCek() async {
     setState(() {
       yukleniyor = true;
@@ -56,21 +54,35 @@ class _NotlarSayfasiState extends State<NotlarSayfasi> {
       final response = await http.get(Uri.parse(url));
       
       if (response.statusCode == 200) {
-        // Türkçe karakterleri düzgün göstermek için utf8.decode kullanıyoruz
         final decodedData = json.decode(utf8.decode(response.bodyBytes));
         setState(() {
           notlar = decodedData;
           yukleniyor = false;
         });
       } else {
-        throw Exception('Veri yüklenemedi: ${response.statusCode}');
+        throw Exception('Veri yüklenemedi');
       }
     } catch (e) {
-      print("Hata: $e");
       setState(() {
         hataVar = true;
         yukleniyor = false;
       });
+    }
+  }
+
+  // RENK DÖNÜŞTÜRÜCÜ FONKSİYON
+  // Gelen "#FF0000" kodunu Flutter rengine çevirir.
+  Color hexToColor(String? hexString) {
+    if (hexString == null || hexString.isEmpty) {
+      return Colors.indigo; // Renk yazılmamışsa varsayılan renk
+    }
+    try {
+      final buffer = StringBuffer();
+      if (hexString.length == 6 || hexString.length == 7) buffer.write('ff');
+      buffer.write(hexString.replaceFirst('#', ''));
+      return Color(int.parse(buffer.toString(), radix: 16));
+    } catch (e) {
+      return Colors.indigo; // Hatalı kod girilirse varsayılan renk
     }
   }
 
@@ -84,72 +96,72 @@ class _NotlarSayfasiState extends State<NotlarSayfasi> {
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh, color: Colors.white),
-            onPressed: verileriCek, // Yenile butonu
-            tooltip: 'Notları Güncelle',
+            onPressed: verileriCek,
           )
         ],
       ),
       body: yukleniyor
-          ? const Center(child: CircularProgressIndicator()) // Yükleniyor simgesi
+          ? const Center(child: CircularProgressIndicator())
           : hataVar
               ? Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Icon(Icons.wifi_off, size: 60, color: Colors.red),
-                      const SizedBox(height: 10),
-                      const Text("Notlar yüklenemedi.", style: TextStyle(fontSize: 18)),
-                      const Text("İnternet bağlantını kontrol et.", style: TextStyle(color: Colors.grey)),
-                      const SizedBox(height: 20),
-                      ElevatedButton(onPressed: verileriCek, child: const Text("Tekrar Dene"))
-                    ],
-                  ),
+                  child: ElevatedButton(onPressed: verileriCek, child: const Text("Tekrar Dene")),
                 )
-              : notlar.isEmpty 
-                ? const Center(child: Text("Henüz hiç not eklenmemiş."))
-                : ListView.builder(
+              : ListView.builder(
                   padding: const EdgeInsets.all(12),
                   itemCount: notlar.length,
                   itemBuilder: (context, index) {
                     final not = notlar[index];
+                    // JSON'dan gelen renk kodunu renge çeviriyoruz
+                    final dersRengi = hexToColor(not['renk']);
+
                     return Card(
                       elevation: 3,
                       margin: const EdgeInsets.only(bottom: 12),
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                      child: Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            // Ders Adı Etiketi
-                            Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-                              decoration: BoxDecoration(
-                                color: Theme.of(context).colorScheme.primaryContainer,
-                                borderRadius: BorderRadius.circular(20),
+                      // Kartın sol tarafına ince renkli çizgi ekledim, şık durur
+                      child: Container(
+                        decoration: BoxDecoration(
+                          border: Border(left: BorderSide(color: dersRengi, width: 6)),
+                          borderRadius: BorderRadius.circular(12),
+                          color: Colors.white,
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  // Kategori Etiketi (Senin belirlediğin renkte olacak)
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                                    decoration: BoxDecoration(
+                                      color: dersRengi, // DİNAMİK RENK BURADA
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    child: Text(
+                                      not['ders'] ?? 'Genel',
+                                      style: const TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 12
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
-                              child: Text(
-                                not['ders'] ?? 'Genel',
-                                style: TextStyle(
-                                  color: Theme.of(context).colorScheme.onPrimaryContainer,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 12
-                                ),
+                              const SizedBox(height: 10),
+                              Text(
+                                not['baslik'] ?? '',
+                                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black87),
                               ),
-                            ),
-                            const SizedBox(height: 10),
-                            // Konu Başlığı
-                            Text(
-                              not['baslik'] ?? 'Başlıksız',
-                              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black87),
-                            ),
-                            const Divider(thickness: 1, height: 20),
-                            // Not İçeriği
-                            Text(
-                              not['icerik'] ?? '',
-                              style: const TextStyle(fontSize: 16, color: Colors.black87, height: 1.4),
-                            ),
-                          ],
+                              const Divider(thickness: 1, height: 20),
+                              Text(
+                                not['icerik'] ?? '',
+                                style: const TextStyle(fontSize: 16, color: Colors.black87),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     );
