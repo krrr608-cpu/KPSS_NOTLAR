@@ -3,41 +3,46 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 void main() {
-  runApp(const KpssOnlineApp());
+  runApp(const KpssKategoriApp());
 }
 
-class KpssOnlineApp extends StatelessWidget {
-  const KpssOnlineApp({super.key});
+class KpssKategoriApp extends StatelessWidget {
+  const KpssKategoriApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'KPSS Notları',
+      title: 'KPSS Ders Notları',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF1565C0)),
         useMaterial3: true,
+        appBarTheme: const AppBarTheme(
+          centerTitle: true,
+          titleTextStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
+          iconTheme: IconThemeData(color: Colors.white),
+        ),
       ),
-      home: const NotlarSayfasi(),
+      home: const AnaSayfa(),
     );
   }
 }
 
-class NotlarSayfasi extends StatefulWidget {
-  const NotlarSayfasi({super.key});
+// --- 1. SAYFA: DERS KATEGORİLERİ ---
+class AnaSayfa extends StatefulWidget {
+  const AnaSayfa({super.key});
 
   @override
-  State<NotlarSayfasi> createState() => _NotlarSayfasiState();
+  State<AnaSayfa> createState() => _AnaSayfaState();
 }
 
-class _NotlarSayfasiState extends State<NotlarSayfasi> {
-  List<dynamic> notlar = [];
-  String dinamikBaslik = "KPSS CANLI NOTLAR"; 
+class _AnaSayfaState extends State<AnaSayfa> {
+  List<dynamic> tumNotlar = [];
+  List<String> dersler = []; // Sadece ders isimlerini tutacak liste
   bool yukleniyor = true;
-  bool hataVar = false;
   String hataMesaji = "";
 
-  // SENİN LİNKİNİN TEMİZLENMİŞ HALİ:
+  // SENİN GİTHUB LİNKİN:
   final String url = "https://raw.githubusercontent.com/krrr608-cpu/KPSS_NOTLAR/main/notlar.json";
 
   @override
@@ -47,57 +52,51 @@ class _NotlarSayfasiState extends State<NotlarSayfasi> {
   }
 
   Future<void> verileriCek() async {
-    setState(() {
-      yukleniyor = true;
-      hataVar = false;
-      hataMesaji = "";
-    });
+    setState(() { yukleniyor = true; hataMesaji = ""; });
 
     try {
-      // URL'in sonuna rastgele sayı ekliyoruz ki telefon eski dosyayı hatırlamasın
       final baglanti = "$url?v=${DateTime.now().millisecondsSinceEpoch}";
-      print("İstek atılan adres: $baglanti");
-
       final response = await http.get(Uri.parse(baglanti));
       
       if (response.statusCode == 200) {
-        // Türkçe karakterleri düzelt
         final body = utf8.decode(response.bodyBytes);
         final decodedData = json.decode(body);
         
-        // --- HEM ESKİ HEM YENİ FORMATI DESTEKLEYEN YAPI ---
+        List<dynamic> gelenVeri = [];
         if (decodedData is Map) {
-          // Eğer JSON dosyan süslü parantez {} ile başlıyorsa (Yeni Format)
-          setState(() {
-            dinamikBaslik = decodedData['uygulama_basligi'] ?? "KPSS CANLI TAKİP";
-            notlar = decodedData['notlar_listesi'] ?? [];
-            yukleniyor = false;
-          });
+          gelenVeri = decodedData['notlar_listesi'] ?? [];
         } else if (decodedData is List) {
-          // Eğer JSON dosyan köşeli parantez [] ile başlıyorsa (Eski Format)
-          setState(() {
-            notlar = decodedData;
-            dinamikBaslik = "KPSS NOTLARI";
-            yukleniyor = false;
-          });
-        } else {
-          throw Exception("Veri formatı tanınamadı. (Ne [] ne de {} ile başlıyor)");
+          gelenVeri = decodedData;
         }
 
+        // DERSLERİ AYIKLA (Her dersten 1 tane olacak şekilde)
+        Set<String> benzersizDersler = {};
+        for (var not in gelenVeri) {
+          benzersizDersler.add(not['ders'] ?? "Diğer");
+        }
+
+        setState(() {
+          tumNotlar = gelenVeri;
+          dersler = benzersizDersler.toList();
+          yukleniyor = false;
+        });
       } else {
-        throw Exception('Dosya Bulunamadı (Hata Kodu: ${response.statusCode})');
+        throw Exception('Bağlantı sorunu: ${response.statusCode}');
       }
     } catch (e) {
-      print("Hata: $e");
-      setState(() {
-        hataVar = true;
-        hataMesaji = "Bağlantı Hatası:\n$e"; 
-        yukleniyor = false;
-      });
+      setState(() { hataMesaji = "Hata: $e"; yukleniyor = false; });
     }
   }
 
-  // Renk kodunu (Hex) renge çeviren fonksiyon
+  // O dersin rengini bulmak için yardımcı fonksiyon
+  Color rengiBul(String dersAdi) {
+    var not = tumNotlar.firstWhere((element) => element['ders'] == dersAdi, orElse: () => null);
+    if (not != null && not['renk'] != null) {
+      return hexToColor(not['renk']);
+    }
+    return Colors.indigo;
+  }
+
   Color hexToColor(String? hexString) {
     if (hexString == null || hexString.isEmpty) return Colors.indigo;
     try {
@@ -105,106 +104,175 @@ class _NotlarSayfasiState extends State<NotlarSayfasi> {
       if (hexString.length == 6 || hexString.length == 7) buffer.write('ff');
       buffer.write(hexString.replaceFirst('#', ''));
       return Color(int.parse(buffer.toString(), radix: 16));
-    } catch (e) {
-      return Colors.indigo;
-    }
+    } catch (e) { return Colors.indigo; }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(dinamikBaslik, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-        centerTitle: true,
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.refresh, color: Colors.white),
-            onPressed: verileriCek,
-          )
-        ],
+        title: const Text("DERS SEÇİMİ"),
+        backgroundColor: Colors.indigo,
+        actions: [IconButton(icon: const Icon(Icons.refresh), onPressed: verileriCek)],
       ),
       body: yukleniyor
           ? const Center(child: CircularProgressIndicator())
-          : hataVar
-              ? Center(
-                  child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: SingleChildScrollView(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Icon(Icons.wifi_off, size: 60, color: Colors.red),
-                          const SizedBox(height: 10),
-                          const Text("Veriler Çekilemedi", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
-                          const SizedBox(height: 10),
-                          Text(hataMesaji, textAlign: TextAlign.center, style: const TextStyle(color: Colors.grey)),
-                          const SizedBox(height: 20),
-                          ElevatedButton(onPressed: verileriCek, child: const Text("Tekrar Dene"))
-                        ],
-                      ),
+          : hataMesaji.isNotEmpty
+              ? Center(child: Text(hataMesaji))
+              : Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: GridView.builder(
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2, // Yan yana 2 kutu
+                      childAspectRatio: 1.5,
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10,
                     ),
-                  ),
-                )
-              : notlar.isEmpty
-                  ? const Center(child: Text("Listelenecek not bulunamadı."))
-                  : ListView.builder(
-                      padding: const EdgeInsets.all(12),
-                      itemCount: notlar.length,
-                      itemBuilder: (context, index) {
-                        final not = notlar[index];
-                        final dersRengi = hexToColor(not['renk']);
-                        
-                        return Card(
-                          elevation: 3,
-                          margin: const EdgeInsets.only(bottom: 12),
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              border: Border(left: BorderSide(color: dersRengi, width: 6)),
-                              borderRadius: BorderRadius.circular(12),
-                              color: Colors.white,
+                    itemCount: dersler.length,
+                    itemBuilder: (context, index) {
+                      String dersAdi = dersler[index];
+                      Color dersRengi = rengiBul(dersAdi);
+
+                      return GestureDetector(
+                        onTap: () {
+                          // Tıklanınca o dersin sayfasına git
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => DersKonulariSayfasi(
+                                secilenDers: dersAdi,
+                                tumNotlar: tumNotlar,
+                                dersRengi: dersRengi,
+                              ),
                             ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(16.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  // Ders Etiketi
-                                  Container(
-                                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-                                    decoration: BoxDecoration(
-                                      color: dersRengi,
-                                      borderRadius: BorderRadius.circular(20),
-                                    ),
-                                    child: Text(
-                                      not['ders'] ?? 'Genel',
-                                      style: const TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 12),
-                                    ),
-                                  ),
-                                  const SizedBox(height: 10),
-                                  // Başlık
-                                  Text(
-                                    not['baslik'] ?? '',
-                                    style: const TextStyle(
-                                        fontSize: 18, fontWeight: FontWeight.bold),
-                                  ),
-                                  const Divider(thickness: 1, height: 20),
-                                  // İçerik
-                                  Text(
-                                    not['icerik'] ?? '',
-                                    style: const TextStyle(fontSize: 16),
-                                  ),
-                                ],
+                          );
+                        },
+                        child: Card(
+                          color: dersRengi,
+                          elevation: 4,
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+                          child: Center(
+                            child: Text(
+                              dersAdi.toUpperCase(),
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
-                        );
-                      },
-                    ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+    );
+  }
+}
+
+// --- 2. SAYFA: SEÇİLEN DERSİN KONULARI ---
+class DersKonulariSayfasi extends StatelessWidget {
+  final String secilenDers;
+  final List<dynamic> tumNotlar;
+  final Color dersRengi;
+
+  const DersKonulariSayfasi({
+    super.key,
+    required this.secilenDers,
+    required this.tumNotlar,
+    required this.dersRengi,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    // Sadece seçilen derse ait notları filtrele
+    final dersinNotlari = tumNotlar.where((not) => not['ders'] == secilenDers).toList();
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(secilenDers.toUpperCase()),
+        backgroundColor: dersRengi,
+      ),
+      body: ListView.builder(
+        padding: const EdgeInsets.all(10),
+        itemCount: dersinNotlari.length,
+        itemBuilder: (context, index) {
+          final not = dersinNotlari[index];
+          return Card(
+            margin: const EdgeInsets.only(bottom: 10),
+            elevation: 2,
+            child: ListTile(
+              leading: CircleAvatar(
+                backgroundColor: dersRengi.withOpacity(0.2),
+                child: Icon(Icons.menu_book, color: dersRengi),
+              ),
+              title: Text(
+                not['baslik'] ?? "Başlıksız Konu",
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
+              subtitle: Text(
+                not['icerik'] != null ? not['icerik'].toString().substring(0, not['icerik'].toString().length > 30 ? 30 : not['icerik'].toString().length) + "..." : "",
+                style: const TextStyle(color: Colors.grey),
+              ),
+              trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+              onTap: () {
+                // Tıklanınca Detay Sayfasına Git
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => NotDetaySayfasi(not: not, temaRengi: dersRengi),
+                  ),
+                );
+              },
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
+
+// --- 3. SAYFA: NOTUN DETAYI ---
+class NotDetaySayfasi extends StatelessWidget {
+  final dynamic not;
+  final Color temaRengi;
+
+  const NotDetaySayfasi({super.key, required this.not, required this.temaRengi});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Not Detayı"),
+        backgroundColor: temaRengi,
+      ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Konu Başlığı
+            Text(
+              not['baslik'] ?? "",
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: temaRengi,
+              ),
+            ),
+            const Divider(thickness: 2, height: 30),
+            // Asıl Not İçeriği
+            Text(
+              not['icerik'] ?? "",
+              style: const TextStyle(
+                fontSize: 18,
+                height: 1.6, // Satır arası boşluk
+                color: Colors.black87,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
