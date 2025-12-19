@@ -1,17 +1,18 @@
 {
-  "uygulama_basligi": "KPSS CANLI TAKİP",
+  "ayarlar": {
+    "baslik": "KPSS CEPTE 2025",
+    "ana_renk": "#E91E63"
+  },
   "notlar_listesi": [
     {
       "ders": "Tarih",
-      "renk": "#D32F2F",
-      "baslik": "İlk Not",
-      "icerik": "Uygulama başarıyla bağlandı.Eğer YouTube'daki evrene enerji yollama, 777 Hz bolluk bereketi çekme gibi manifesting videolarını soruyorsan; ben bir yapay zeka olduğum için kulaklığım yok, o yüzden dinleyemiyorum. Benim tüm olayım veriler ve kodlar."
+      "baslik": "Osmanlı Kuruluş",
+      "icerik": "Osman Bey, Bizans ile Koyunhisar savaşını yapmıştır."
     },
     {
-      "ders": "Vatandaşlık",
-      "renk": "#7B1FA2",
-      "baslik": "Test",
-      "icerik": "Renkler ve başlıklar çalışıyor."
+      "ders": "Coğrafya",
+      "baslik": "Dağlar",
+      "icerik": "Kıvrım dağları: Toroslar, Kuzey Anadolu dağları..."
     }
   ]
 }
