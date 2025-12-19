@@ -1,5 +1,5 @@
 name: kpss_notlar
-description: Online KPSS Notlari
+description: KPSS Not Uygulamasi
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -9,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  # İŞTE BU EKSİK OLABİLİR, BUNSUZ ÇALIŞMAZ:
   http: ^1.1.0
 
 dev_dependencies:
@@ -20,6 +21,7 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
+# İkon ayarları (Eğer icon.png yüklemediysen bu alt kısmı sil)
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
