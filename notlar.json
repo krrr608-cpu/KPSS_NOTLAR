@@ -1,17 +1,17 @@
 {
-  "uygulama_basligi": "KPSS CANLI TAKİP 2025",
+  "uygulama_basligi": "KPSS CANLI TAKİP",
   "notlar_listesi": [
     {
       "ders": "Tarih",
       "renk": "#D32F2F",
-      "baslik": "Lale Devri",
-      "icerik": "Lale devri minyatürcüsü Levni, şairi Nedim'dir."
+      "baslik": "İlk Not",
+      "icerik": "Uygulama şu an sorunsuz çalışıyor."
     },
     {
       "ders": "Coğrafya",
       "renk": "#F57C00",
-      "baslik": "Rüzgarlar",
-      "icerik": "Lodos: Gözü yaşlıdır (Yağmur getirir)."
+      "baslik": "Deneme",
+      "icerik": "Veri çekme işlemi başarılı."
     }
   ]
 }
