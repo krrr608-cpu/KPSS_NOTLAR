@@ -5,13 +5,13 @@
       "ders": "Tarih",
       "renk": "#D32F2F",
       "baslik": "İlk Not",
-      "icerik": "Uygulama şu an sorunsuz çalışıyor."
+      "icerik": "Uygulama başarıyla bağlandı."
     },
     {
-      "ders": "Coğrafya",
-      "renk": "#F57C00",
-      "baslik": "Deneme",
-      "icerik": "Veri çekme işlemi başarılı."
+      "ders": "Vatandaşlık",
+      "renk": "#7B1FA2",
+      "baslik": "Test",
+      "icerik": "Renkler ve başlıklar çalışıyor."
     }
   ]
 }
