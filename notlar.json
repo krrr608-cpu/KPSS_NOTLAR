@@ -1,12 +1,20 @@
 [
   {
     "ders": "Tarih",
+    "renk": "#D32F2F",
     "baslik": "Osmanlı Duraklama",
-    "icerik": "Duraklamanın iç nedenleri: Merkezi otoritenin bozulması..."
+    "icerik": "Duraklamanın iç nedenleri..."
   },
   {
     "ders": "Coğrafya",
+    "renk": "#F57C00",
     "baslik": "Dağlar",
-    "icerik": "Kıvrım dağları: Toroslar, Kuzey Anadolu dağları..."
+    "icerik": "Kıvrım dağları: Toroslar..."
+  },
+  {
+    "ders": "Vatandaşlık",
+    "renk": "#7B1FA2",
+    "baslik": "Anayasa",
+    "icerik": "1982 Anayasası özellikleri..."
   }
 ]
