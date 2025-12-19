@@ -1,20 +1,17 @@
-[
-  {
-    "ders": "Tarih",
-    "renk": "#D32F2F",
-    "baslik": "Osmanlı Duraklama",
-    "icerik": "Duraklamanın iç nedenleri..."
-  },
-  {
-    "ders": "Coğrafya",
-    "renk": "#F57C00",
-    "baslik": "Dağlar",
-    "icerik": "Kıvrım dağları: Toroslar..."
-  },
-  {
-    "ders": "Vatandaşlık",
-    "renk": "#7B1FA2",
-    "baslik": "Anayasa",
-    "icerik": "1982 Anayasası özellikleri..."
-  }
-]
+{
+  "uygulama_basligi": "KPSS CANLI TAKİP 2025",
+  "notlar_listesi": [
+    {
+      "ders": "Tarih",
+      "renk": "#D32F2F",
+      "baslik": "Lale Devri",
+      "icerik": "Lale devri minyatürcüsü Levni, şairi Nedim'dir."
+    },
+    {
+      "ders": "Coğrafya",
+      "renk": "#F57C00",
+      "baslik": "Rüzgarlar",
+      "icerik": "Lodos: Gözü yaşlıdır (Yağmur getirir)."
+    }
+  ]
+}
