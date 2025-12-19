@@ -1,5 +1,5 @@
 name: kpss_notlar
-description: KPSS Ders Notlari Uygulamasi
+description: Online KPSS Notlari
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -9,7 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  shared_preferences: ^2.2.0
+  http: ^1.1.0  # Bu satır olmadan üstteki kod çalışmaz!
 
 dev_dependencies:
   flutter_test:
