@@ -1,7 +1,11 @@
 {
-  "ayarlar": {
-    "baslik": "KPSS CEPTE 2025",
-    "ana_renk": "#E91E63"
+  "uygulama_basligi": "KPSS 2025 ÖZEL",
+  "kategori_renkleri": {
+    "Tarih": "#D32F2F",
+    "Coğrafya": "#388E3C",
+    "Vatandaşlık": "#1976D2",
+    "Türkçe": "#F57C00",
+    "Genel": "#607D8B"
   },
   "notlar_listesi": [
     {
@@ -13,6 +17,11 @@
       "ders": "Coğrafya",
       "baslik": "Dağlar",
       "icerik": "Kıvrım dağları: Toroslar, Kuzey Anadolu dağları..."
+    },
+    {
+      "ders": "Vatandaşlık",
+      "baslik": "Anayasa",
+      "icerik": "1982 anayasası sert ve kazuistik bir anayasadır."
     }
   ]
 }
