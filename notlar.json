@@ -77,11 +77,12 @@
       "ders": "Coğrafya",
       "baslik": "Dağlar",
       "icerik": "Kıvrım dağları: Toroslar, Kuzey Anadolu dağları..."
-    },
-    {
-      "ders": "Vatandaşlık",
-      "baslik": "Anayasa",
-      "icerik": "1982 anayasası sert ve kazuistik bir anayasadır."
+     },
+     {
+    "ders": "Matematik",
+    "sira": 3,
+    "baslik": "Tek ve Çift Sayılar (Pratik Kurallar)",
+    "icerik": "1. ÇARPMA MANTIĞI (ALTIN KURAL):\n- Sonuç TEK ise → Sayıların HEPSİ TEK'tir.\n- Sonuç ÇİFT ise → İçlerinde EN AZ BİR TANE ÇİFT vardır.\n\n2. TOPLAMA VE ÇIKARMA:\n- Aynılar ÇİFT yapar (Tek ± Tek = Çift, Çift ± Çift = Çift).\n- Farklılar TEK yapar (Tek ± Çift = Tek).\n\n3. ÜS SİLME HİLESİ (HIZ KAZANDIRIR):\n- Üs pozitif tam sayı ise SİL GİTSİN! Taban neyse odur.\n- Örn: x üzeri 2024 yerine sadece x düşün.\n- Dikkat: Üs negatifse veya 0 ise bu kuralı uygulama.\n\n4. BÜYÜK TUZAK (BÖLME):\n- Bölme işleminde teklik-çiftlik yorumu ASLA YAPILMAZ.\n- a/b = c görürsen hemen İçler Dışlar Çarpımı yap: a = b.c\n- Sonra çarpma kuralına göre yorumla."
     }
   ]
 }
