@@ -27,6 +27,12 @@
       },
       {
       "ders": "Tarih",
+      "sira": 4,
+      "baslik": "İlke - İnkılap Eşleştirmesi (Kısa Kodlar)",
+      "icerik": "Bir inkılabın hangi ilke ile ilgili olduğunu bulmak için bu anahtar kelimelere bakmalısın:\n\n1. Cumhuriyetçilik:\nSeçim, parti, meclis, oy kullanma, saltanatın kaldırılması.\n\n2. Milliyetçilik:\nTürk, Türkçe, milli, bağımsızlık, Kabotaj Kanunu, kapitülasyonların kaldırılması.\n\n3. Halkçılık:\nEşitlik, ayrıcalıkların kalkması (Soyadı Kanunu, Medeni Kanun, Aşar vergisinin kalkması).\n\n4. Laiklik:\nDin ve devletin ayrılması, akıl, bilim, Halifeliğin kaldırılması, Tekke ve Zaviyelerin kapatılması.\n\n5. Devletçilik:\nEkonomi, fabrika, banka, kalkınma planları (Devletin yatırım yapması).\n\n6. İnkılapçılık:\nÇağdaşlaşma, modernleşme, dinamizm (Takvim, Saat, Ölçü değişikliği gibi batıya uyum adımları)."
+      },
+      {
+      "ders": "Tarih",
       "sira": 1,
       "baslik": "I. İnönü ve Sakarya Savaşı",
       "icerik": "Yıl: 1921\nTürü: Askeri\n\nKurtuluş Savaşı'nın en kritik savunma savaşlarıdır."
