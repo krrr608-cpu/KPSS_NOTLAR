@@ -12,6 +12,48 @@
       "ders": "Tarih",
       "baslik": "Osmanlı Kuruluş",
       "icerik": "Osman Bey, Bizans ile Koyunhisar savaşını yapmıştır."
+      },
+      {
+      "ders": "Tarih",
+      "sira": 1,
+      "baslik": "I. İnönü ve Sakarya Savaşı",
+      "icerik": "Yıl: 1921\nTürü: Askeri\n\nKurtuluş Savaşı'nın en kritik savunma savaşlarıdır."
+    },
+    {
+      "ders": "Tarih",
+      "sira": 2,
+      "baslik": "Cumhuriyetin İlanı",
+      "icerik": "Yıl: 1923\nTürü: Siyasi\n\n29 Ekim 1923'te TBMM tarafından kabul edilmiştir."
+    },
+    {
+      "ders": "Tarih",
+      "sira": 3,
+      "baslik": "Halifeliğin Kaldırılması",
+      "icerik": "Yıl: 1924\nTürü: Siyasi/Dini\n\nLaiklik yolunda atılan en önemli adımdır."
+    },
+    {
+      "ders": "Tarih",
+      "sira": 4,
+      "baslik": "Türk Medeni Kanunu",
+      "icerik": "Yıl: 1926\nTürü: Hukuki/Sosyal\n\nKadın-erkek eşitliği sağlanmış, resmi nikah zorunlu hale gelmiştir."
+    },
+    {
+      "ders": "Tarih",
+      "sira": 5,
+      "baslik": "Kadınlara Belediye Seçim Hakkı",
+      "icerik": "Yıl: 1930\nTürü: Siyasi Hak\n\nTürk kadınına verilen ilk siyasi haktır."
+    },
+    {
+      "ders": "Tarih",
+      "sira": 6,
+      "baslik": "Kadınlara M.Vekili Seçme Hakkı",
+      "icerik": "Yıl: 1934\nTürü: Siyasi Hak\n\nKadınlara seçme ve seçilme hakkı tam olarak tanınmıştır."
+    },
+    {
+      "ders": "Tarih",
+      "sira": 7,
+      "baslik": "Montrö Boğazlar Sözleşmesi",
+      "icerik": "Yıl: 1936\nTürü: Dış Politika\n\nBoğazlar üzerindeki tam egemenlik Türkiye'ye geçmiştir."
     },
     {
       "ders": "Coğrafya",
