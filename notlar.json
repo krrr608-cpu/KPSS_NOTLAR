@@ -85,5 +85,11 @@
     "baslik": "Tek ve Çift Sayılar (Pratik Kurallar)",
     "icerik": "1. ÇARPMA MANTIĞI (ALTIN KURAL):\n- Sonuç TEK ise → Sayıların HEPSİ TEK'tir.\n- Sonuç ÇİFT ise → İçlerinde EN AZ BİR TANE ÇİFT vardır.\n\n2. TOPLAMA VE ÇIKARMA:\n- Aynılar ÇİFT yapar (Tek ± Tek = Çift, Çift ± Çift = Çift).\n- Farklılar TEK yapar (Tek ± Çift = Tek).\n\n3. ÜS SİLME HİLESİ (HIZ KAZANDIRIR):\n- Üs pozitif tam sayı ise SİL GİTSİN! Taban neyse odur.\n- Örn: x üzeri 2024 yerine sadece x düşün.\n- Dikkat: Üs negatifse veya 0 ise bu kuralı uygulama.\n\n4. BÜYÜK TUZAK (BÖLME):\n- Bölme işleminde teklik-çiftlik yorumu ASLA YAPILMAZ.\n- a/b = c görürsen hemen İçler Dışlar Çarpımı yap: a = b.c\n- Sonra çarpma kuralına göre yorumla."
     }
+    {
+  "ders": "MAKALE",
+  "sira": 4,
+  "baslik": "Divan Edebiyatı: Şairler ve Özellikler",
+  "icerik": "GECENİN SESSİZLİĞİNDE BİR GÜL BAHÇESİ\nDivan şiiri bir 'kaçış edebiyatıdır'. Şairler günlük hayattan kaçıp 'Sanat sanat içindir' anlayışıyla kusursuz bir hayal dünyasına sığınırlar.\n\nARUZ VE MAZMUNLAR:\n- Ölçü: Aruz ölçüsü (Failatün / failatün...).\n- Kafiye: Kulak için değil, 'göz için kafiye' önemlidir.\n- Mazmun (Kalıplaşmış Sözler): Sevgili=Sultan, Boy=Servi, Ağız=Gonca, Kirpik=Ok.\n\nŞAİRLER MECLİSİ (KİMLER VAR?):\n1. Fuzuli (Izdırap Şairi): 'Aşk derdiyle hoşem' der. Acı çekmek onu olgunlaştırır. (Aşk=İlahi Aşk).\n\n2. Baki (Zevk ve Eğlence): Kanuni döneminin ihtişamını yansıtır. Biçim mükemmelliği önemlidir. 'Bu dünya geçici, gününü gün et' der.\n\n3. Nedim (Lale Devri): Şarkı türünün üstadıdır. 'Mahallileşme' akımı ile İstanbul Türkçesini şiire sokmuştur.\n\n4. Nabi (Hikemi Tarz): Duygudan çok aklı önemser. 'Şiir yol göstermeli' diyerek oğluna öğütler verir (Hayriye).\n\n5. Şeyh Galip (Son Büyük Çığlık): Sebk-i Hindi akımıyla kapalı, süslü ve derin bir anlatımı vardır (Hüsn ü Aşk).\n\nMESNEVİLER:\nGünümüzdeki romanın yerini tutan, beyit beyit (aa, bb, cc) yazılan uzun aşk hikayeleridir (Leyla ile Mecnun gibi)."
+}
   ]
 }
