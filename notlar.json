@@ -141,6 +141,36 @@
     "baslik": "Tek ve Çift Sayılar (Pratik Kurallar)",
     "icerik": "1. ÇARPMA MANTIĞI (ALTIN KURAL):\n- Sonuç TEK ise → Sayıların HEPSİ TEK'tir.\n- Sonuç ÇİFT ise → İçlerinde EN AZ BİR TANE ÇİFT vardır.\n\n2. TOPLAMA VE ÇIKARMA:\n- Aynılar ÇİFT yapar (Tek ± Tek = Çift, Çift ± Çift = Çift).\n- Farklılar TEK yapar (Tek ± Çift = Tek).\n\n3. ÜS SİLME HİLESİ (HIZ KAZANDIRIR):\n- Üs pozitif tam sayı ise SİL GİTSİN! Taban neyse odur.\n- Örn: x üzeri 2024 yerine sadece x düşün.\n- Dikkat: Üs negatifse veya 0 ise bu kuralı uygulama.\n\n4. BÜYÜK TUZAK (BÖLME):\n- Bölme işleminde teklik-çiftlik yorumu ASLA YAPILMAZ.\n- a/b = c görürsen hemen İçler Dışlar Çarpımı yap: a = b.c\n- Sonra çarpma kuralına göre yorumla."
     },
+  {
+    "ders": "Matematik",
+    "sira": 1,
+    "baslik": "Sayıların Dili: Temel Kavramlar",
+    "icerik": "# Matematikçe Konuşmak\n\nSorunun başında \"x bir doğal sayı\" mı diyor, \"x bir tam sayı\" mı diyor? Burayı kaçırırsan soru gider.\n\n### 1. Sayı Kümeleri\n* **Rakam:** 0, 1, 2... 9 (Telefon tuşları). 10 bir rakam değildir!\n* **Doğal Sayı (N):** 0'dan başlar, sonsuza gider. (Doğada 0 ağaç olabilir).\n* **Tam Sayı (Z):** ...-2, -1, 0, 1, 2... (Negatifler dahildir).\n* **Reel Sayı (R):** Aklına gelebilecek her sayı (Köklü, virgüllü, kesirli).\n\n### 2. Tek ve Çift Sayılar (Banko Soru)\nÖSYM'nin en sevdiği yorum sorusudur.\n* **Çift:** 2 ile bölünebilenler.\n* **Tek:** 2 ile bölünemeyenler.\n* **Altın Kural:** Çarpma işleminde sonucun TEK olması için **tüm sayıların TEK** olması gerekir. (5 x 7 x 9 = Tek). İçinde bir tane bile Çift varsa sonuç ÇİFT olur.\n\n### 3. Asal Sayılar\nSadece 1'e ve kendisine bölünenler.\n* **2, 3, 5, 7, 11, 13, 17, 19...**\n* **Dikkat:** En küçük asal sayı 2'dir. 2 dışında çift olan asal sayı yoktur. 1 asal değildir!"
+  },
+  {
+    "ders": "Matematik",
+    "sira": 2,
+    "baslik": "Bedava Net: Rasyonel Sayılar",
+    "icerik": "# Virgül Kaydırma Sanatı\n\nHer sene en az 1-2 soru gelir. İşlem hatası yapmazsan ceptedir.\n\n### 1. İşlem Önceliği (ÜPÇT)\nSırayı şaşırırsan sonuç yanlış çıkar:\n1.  **Ü**slü Sayılar\n2.  **P**arantez İçi\n3.  **Ç**arpma / Bölme\n4.  **T**oplama / Çıkarma\n\n### 2. Virgül Kaydırma (Pratik Yol)\nBölme işleminde virgülden kurtulmak için pay ve paydayı aynı miktarda sağa kaydır.\n* *Örnek:* 0,2 / 0,04 -> Yukarıyı 2 basamak kaydır (20), aşağıyı 2 basamak kaydır (4). Sonuç: 20/4 = 5. (Boşluklara sıfır atılır)."
+  },
+  {
+    "ders": "Matematik",
+    "sira": 3,
+    "baslik": "Şifre Çözücü: Bölünebilme Kuralları",
+    "icerik": "# Kalan Kaç? Kurallar\n\nSayıları tek tek bölmekle uğraşma, kuralı uygula.\n\n* **2 ile:** Son basamak çift olacak (0,2,4,6,8).\n* **3 ile:** Rakamları toplamı 3'ün katı olacak.\n* **4 ile:** Son iki basamak 4'ün katı olacak (00, 04, 12...).\n* **5 ile:** Son basamak 0 veya 5 olacak.\n* **9 ile:** Rakamları toplamı 9'un katı olacak.\n* **10 ile:** Son basamak 0 olacak. (Kalan, birler basamağındaki sayıdır).\n* **11 ile:** Sağdan sola (+, -, +, -) koyarak topla.\n* **6 ile:** Hem 2'ye hem 3'e bölünmeli.\n* **12 ile:** Hem 3'e hem 4'e bölünmeli."
+  },
+  {
+    "ders": "Matematik",
+    "sira": 4,
+    "baslik": "Denklemlerin Temeli: Üslü ve Köklü Sayılar",
+    "icerik": "# Kuvvet Alma ve Şapka Takma\n\n### 1. Üslü Sayılar\n* **Çarpma:** Tabanlar aynıysa üsler toplanır. ($2^3 . 2^5 = 2^8$)\n* **Bölme:** Tabanlar aynıysa üsler çıkarılır. ($2^5 / 2^3 = 2^2$)\n* **Üssün Üssü:** Üsler çarpılır. ($(2^3)^4 = 2^{12}$)\n* **Negatif Üs:** Sayıyı takla attırır. ($2^{-1} = 1/2$)\n\n### 2. Köklü Sayılar\nKök dışına çıkarma aslında hapishaneden kaçış gibidir.\n* $\\sqrt{36} = 6$\n* $\\sqrt{12} = \\sqrt{4.3} = 2\\sqrt{3}$ (4 dışarı 2 diye çıkar, 3 içeride kalır).\n* **Köklü Sayılarda Toplama:** Sadece kök içleri aynıysa toplanır! ($2\\sqrt{3} + 5\\sqrt{3} = 7\\sqrt{3}$). ($\\sqrt{2} + \\sqrt{3}$ TOPLANMAZ, öyle kalır)."
+  },
+  {
+    "ders": "Matematik",
+    "sira": 5,
+    "baslik": "Uzaklık Kavramı: Mutlak Değer ve Eşitsizlik",
+    "icerik": "# Pozitif Düşünce Gücü\n\n### 1. Mutlak Değer (|x|)\nSayının 0'a olan uzaklığıdır. Uzaklık asla negatif olmaz. Sonuç hep pozitiftir.\n* $|-5| = 5$\n* $|5| = 5$\n* **Denklem:** $|x| = 7$ ise, x ya 7'dir ya da -7'dir.\n\n### 2. Basit Eşitsizlikler (<, >)\n* Eşitsizliğin her iki tarafını pozitif sayıyla çarparsan/bölersen yön değişmez.\n* **DİKKAT:** Eşitsizliği **NEGATİF** sayıyla çarparsan/bölersen işaret **YÖN DEĞİŞTİRİR** (Küçüktür, Büyüktür olur).\n    * $-2x < 10$ (Her iki tarafı -2'ye böl) -> $x > -5$"
+  },
     {
   "ders": "Makale",
   "sira": 4,
