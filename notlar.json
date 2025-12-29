@@ -202,6 +202,12 @@
     "icerik": "# Kapasiteyle Çalışmak\n\nİşçi problemlerinde formül ezberleme, \"1 günde ne kadar iş yapıyor?\" mantığını kullan.\n\n* **Mantık:** Ali bir işi 10 günde yapıyorsa, 1 günde işin **1/10**'unu yapar.\n* **Beraber Çalışma:** Ali (10 gün) ve Veli (15 gün) beraber kaç günde yapar?\n    * (1/10 + 1/15) . t = 1 (İşin Tamamı)\n    * Paydaları eşitle, t'yi bul."
   },
     {
+  "ders": "Matematik",
+  "sira": 11,
+  "baslik": "Matematiğin Kalbi: Fonksiyonlar (TYT-AYT Köprüsü)",
+  "icerik": "# f(x) Nedir? Fabrika Mantığı\n\nFonksiyon bir kıyma makinesi gibidir. Üstten et (x) atarsın, alttan kıyma (y) çıkar. Kural neyse onu yapar.\n\n### 1. Tanım ve Değer Kümesi\n* **Tanım Kümesi (A):** Makineye atılanlar (Çocuklar).\n* **Değer Kümesi (B):** Çıkan sonuçlar (Anneler).\n* **Kural:** Her çocuğun mutlaka bir annesi olmalı (Tanım kümesinde boşta eleman kalamaz). Bir çocuğun iki annesi olamaz (Bir x değeri iki farklı y'ye gidemez).\n\n### 2. Fonksiyon Çeşitleri\n* **Birim Fonksiyon:** İçi dışı bir olan. f(x) = x. (f(5)=5, f(elmalar)=elmalar).\n* **Sabit Fonksiyon:** Ne atarsan at sonuç değişmez. f(x) = c. (f(100) = 5, f(1) = 5).\n* **Doğrusal Fonksiyon:** Düz çizgi grafiğidir. **f(x) = ax + b** formülünü adın gibi bilmelisin!\n\n### 3. Ters Fonksiyon ($f^{-1}$)\nMakineyi tersten çalıştırmaktır. Kıyma girer, et çıkar.\n* **Kural:** x ile y yer değiştirir.\n* **Pratik:** $f(x) = ax + b$ ise, Tersi: $(x - b) / a$'dır. (Toplamayı çıkarma, çarpmayı bölme yap).\n* **Önemli:** $f(a) = b$ ise, $f^{-1}(b) = a$ olur. (İçerisi ile dışarısını yer değiştirirsen fonksiyonun tersini almış olursun).\n\n### 4. Bileşke Fonksiyon (fog)(x)\nİç içe makineler demektir. Sağdaki makinenin çıktısı, soldakinin girdisi olur.\n* **(fog)(x) = f(g(x))** demektir. Önce x'i g makinesine at, çıkan sonucu al f makinesine at.\n* **Dikkat:** Fonksiyonlarda değişme özelliği yoktur! (fog) eşit değildir (gof)."
+   },
+    {
   "ders": "Makale",
   "sira": 4,
   "baslik": "Divan Edebiyatı: Şairler ve Özellikler",
