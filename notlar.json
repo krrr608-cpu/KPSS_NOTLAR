@@ -1,6 +1,7 @@
 {
   "uygulama_basligi": "HİLAL",
   "kategori_renkleri": {
+    "Türkçe": "#FF00FF",
     "Tarih": "#D32F2F",
     "Matematik": "#9C27B0",
     "Coğrafya": "#388E3C",
