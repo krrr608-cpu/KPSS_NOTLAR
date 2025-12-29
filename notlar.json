@@ -171,6 +171,36 @@
     "baslik": "Uzaklık Kavramı: Mutlak Değer ve Eşitsizlik",
     "icerik": "# Pozitif Düşünce Gücü\n\n### 1. Mutlak Değer (|x|)\nSayının 0'a olan uzaklığıdır. Uzaklık asla negatif olmaz. Sonuç hep pozitiftir.\n* $|-5| = 5$\n* $|5| = 5$\n* **Denklem:** $|x| = 7$ ise, x ya 7'dir ya da -7'dir.\n\n### 2. Basit Eşitsizlikler (<, >)\n* Eşitsizliğin her iki tarafını pozitif sayıyla çarparsan/bölersen yön değişmez.\n* **DİKKAT:** Eşitsizliği **NEGATİF** sayıyla çarparsan/bölersen işaret **YÖN DEĞİŞTİRİR** (Küçüktür, Büyüktür olur).\n    * $-2x < 10$ (Her iki tarafı -2'ye böl) -> $x > -5$"
   },
+  {
+    "ders": "Matematik",
+    "sira": 6,
+    "baslik": "Problemlerin Babası: Sayı ve Kesir Problemleri",
+    "icerik": "# Denklem Kurma Sanatı\n\nHer problemin bir dili vardır. Türkçeyi Matematiğe çevirmelisin.\n\n### 1. Temel Çeviriler\n* **Bir sayının 3 fazlasının yarısı:** (x + 3) / 2\n* **Bir sayının yarısının 3 fazlası:** (x / 2) + 3\n* **Dikkat:** \"Kalanın\" kelimesi geçiyorsa dikkat et! (Parasının 1/3'ünü harcıyor, sonra KALANIN yarısını...)\n\n### 2. Kesir Problemleri Taktığı (Payda Eşitleme)\nBilinmeyene asla sadece \"x\" deme. Paydaların katı olan bir sayı ver.\n* *Soru:* Parasının önce 1/3'ünü, sonra 1/4'ünü harcıyor.\n* *Hata:* Paraya x dersen kesirlerle boğuşursun.\n* *Taktik:* 3 ve 4'ün katı olan **12x** de. (12x'in 1/3'ü 4x yapar, işlem kolaylaşır).\n\n### 3. Mum Soruları\nEşit boyda iki mum biri 4 saatte, biri 6 saatte yanıp bitiyor...\n* *Taktik:* Mumun boyuna 4 ve 6'nın katı olan **12 birim** de. Hızlarını bul (Biri saatte 3 birim, diğeri 2 birim yanar)."
+  },
+  {
+    "ders": "Matematik",
+    "sira": 7,
+    "baslik": "Tablo Çiz: Yaş Problemleri",
+    "icerik": "# Zaman Akıp Gidiyor\n\n### 1. Altın Kurallar\n* **Yaş Farkı Asla Değişmez:** Sen büyürsen kardeşin de büyür. Aranızdaki fark hep sabittir.\n* **Geçmiş/Gelecek:** \"5 yıl önce\" derse (x-5), \"5 yıl sonra\" derse (x+5).\n\n### 2. Tablo Yöntemi\nSoruyu okurken kafadan yapma, tablo çiz:\n| İsim | Bugün | 5 Yıl Sonra |\n| :--- | :--- | :--- |\n| Ali | x | x + 5 |\n| Veli | y | y + 5 |\n\n* *Soru:* 5 yıl sonra Ali'nin yaşı Veli'nin 2 katı olacak.\n* *Denklem:* (x + 5) = 2 . (y + 5) -> Parantezi unutma!"
+  },
+  {
+    "ders": "Matematik",
+    "sira": 8,
+    "baslik": "Yol = Hız x Zaman: Hareket Problemleri",
+    "icerik": "# X = V.t Formülü\n\n### 1. Birimlere Dikkat\n* Hız km/saat ise zaman SAAT olmalı. Dakika verirse saate çevir (30 dk = 1/2 saat).\n\n### 2. Karşılaşma ve Yakalama\n* **Zıt Yön (Karşılaşma):** Birbirlerine doğru geliyorlarsa hızları **TOPLANIR**. (Çünkü mesafe çabuk biter).\n    * Yol = (V1 + V2) . t\n* **Aynı Yön (Yakalama):** Hızlı olan arkadan gelip yavaşı yakalayacaksa hızları **ÇIKARILIR**.\n    * Yol = (V1 - V2) . t\n\n### 3. Tren-Tünel Soruları\n* Tren tüneli geçerken kendi boyunu da geçmek zorundadır.\n* **Toplam Yol = Trenin Boyu + Tünelin Boyu**"
+  },
+  {
+    "ders": "Matematik",
+    "sira": 9,
+    "baslik": "100x Hayat Kurtarır: Yüzde ve Kar-Zarar",
+    "icerik": "# Yüzde Hesaplama Taktiği\n\n### 1. Bilinmeyene 100x De\nBir ürünün maliyetine asla \"x\" deme. **100x** de.\n* %20 Kar: 120x\n* %20 İndirim: 80x\n* %20 Zarar: 80x\n\n### 2. Zincirleme İşlemler\n* *Soru:* Bir mala %20 zam yapıldı, sonra zamlı fiyat üzerinden %10 indirim yapıldı.\n* *Çözüm:* Mal = 100 TL olsun.\n    1.  %20 Zam -> 120 TL oldu.\n    2.  120 TL üzerinden %10 indirim (12 TL) -> 120 - 12 = 108 TL.\n    * *Sonuç:* Başlangıçta 100'dü, şimdi 108. Yani %8 Kar (100x demeseydin işlem uzardı)."
+  },
+  {
+    "ders": "Matematik",
+    "sira": 10,
+    "baslik": "İşçi Problemleri: Birim Zaman",
+    "icerik": "# Kapasiteyle Çalışmak\n\nİşçi problemlerinde formül ezberleme, \"1 günde ne kadar iş yapıyor?\" mantığını kullan.\n\n* **Mantık:** Ali bir işi 10 günde yapıyorsa, 1 günde işin **1/10**'unu yapar.\n* **Beraber Çalışma:** Ali (10 gün) ve Veli (15 gün) beraber kaç günde yapar?\n    * (1/10 + 1/15) . t = 1 (İşin Tamamı)\n    * Paydaları eşitle, t'yi bul."
+  },
     {
   "ders": "Makale",
   "sira": 4,
