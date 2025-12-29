@@ -206,6 +206,59 @@
     "baslik": "Hayatımızdaki Kimya: Sabunlar, Polimerler ve Gıdalar",
     "icerik": "# Kimya Her Yerde (Çerez Konu)\n\nBu konu tamamen sözeldir ve genel kültürdür. Okuyup geçerek net kazanabilirsin.\n\n### 1. Temizlik Maddeleri\n* **Sabun:** Bitkisel yağlardan yapılır. Doğaldır, çevreyi kirletmez. Sert sularda köpürmez.\n* **Deterjan:** Petrolden yapılır. Çevreyi kirletir. Her türlü suda köpürür.\n* **Çamaşır Suyu (NaOCl):** Mikrop öldürücüdür. Asla Tuz Ruhu ile karıştırma! (Zehirli Klor gazı çıkar).\n\n### 2. Polimerler (Plastikler)\nKüçük moleküllerin (Monomer) zincir gibi birleşmesidir.\n* **Kauçuk:** Lastik yapımı.\n* **PET:** Su şişesi.\n* **PVC:** Kapı pencere doğraması, boru.\n* **Teflon:** Yanmaz yapışmaz tava.\n\n### 3. Gıdalar\n* **UHT ve Pastörizasyon:** Sütteki mikropları öldürmek için yapılır. UHT daha uzun ömürlüdür."
   },
-    
- ]
+  {
+    "ders": "Fizik",
+    "sira": 1,
+    "baslik": "Başlangıç: Fizik Bilimine Giriş (Sözel)",
+    "icerik": "# Fizik Nedir? Büyüklükler ve Birimler\n\nFizik dersinin en kolay, işlemsiz ve sözel konusudur.\n\n### 1. Temel vs Türetilmiş Büyüklükler\n* **Temel Büyüklükler (KISAMUZ):** Tek başına anlamlıdır. Kütle, Işık şiddeti, Sıcaklık, Akım, Madde miktarı, Uzunluk, Zaman.\n* **Türetilmiş:** Formülle bulunur (Hız, Kuvvet, Enerji).\n\n### 2. Skaler vs Vektörel\n* **Skaler:** Sadece sayı yeterli (Kütle, Zaman, Sıcaklık). Yönü yoktur!\n* **Vektörel:** Yönü olmak zorunda (Kuvvet, Hız, İvme, Yer değiştirme).\n\n### 3. Bilimsel Araştırma Merkezleri\nBunların ne olduğunu bilmen yeterli:\n* **CERN:** İsviçre'de atom altı parçacık deneyi.\n* **NASA:** ABD Uzay ajansı.\n* **TAEK:** Türkiye Atom Enerjisi Kurumu.\n* **ASELSAN:** Askeri elektronik (Türkiye)."
+  },
+  {
+    "ders": "Fizik",
+    "sira": 2,
+    "baslik": "Maddenin Doğası: Özkütle ve Dayanıklılık",
+    "icerik": "# Hangisi Daha Ağır? Özkütle Mantığı\n\nBasit bir formülü vardır (Dede Muz Bölü Ver).\n\n### 1. Özkütle (d = m/V)\n* **Formül:** d=m/V (Özkütle = Kütle / Hacim).\n* **Su:** Özkütlesi 1'dir. Özkütlesi 1'den küçük olanlar yüzer (Zeytinyağı), büyük olanlar batar (Demir).\n* **Ayırt Edici:** Her maddenin özkütlesi farklıdır (Parmak izi gibi).\n\n### 2. Dayanıklılık\nKatı cisimlerin kendi ağırlığına dayanabilmesidir. Boyut büyüdükçe dayanıklılık AZALIR. (Karınca filden daha dayanıklıdır, kendi ağırlığının katlarını taşır).\n\n### 3. Adezyon ve Kohezyon\n* **Adezyon (Yapışma):** Farklı maddelerin birbirine yapışması (Su damlasının cama yapışması).\n* **Kohezyon (Tutunma):** Aynı moleküllerin birbirini tutması (Su damlasının küresel durması).\n* **Yüzey Gerilimi:** Böceklerin suda yürümesini sağlayan, suyun üzerindeki zar tabakasıdır (Kohezyon sayesinde olur)."
+  },
+  {
+    "ders": "Fizik",
+    "sira": 3,
+    "baslik": "Enerji Transferi: Isı ve Sıcaklık",
+    "icerik": "# Sıcaklık Enerji Değildir!\n\nTYT Fiziğin en çok soru gelen konularından biridir. Kavramları karıştırma yeter.\n\n### 1. Kavramlar\n* **Sıcaklık:** Moleküllerin ortalama hareketliliğidir. Enerji değildir. Termometre ile ölçülür.\n* **Isı:** Transfer edilen enerjidir. Kalorimetre ile ölçülür. Birimi Joule'dür.\n* **İç Enerji:** Bir maddenin toplam enerjisidir.\n\n### 2. Hal Değişimi\n* **Erime/Donma:** Sıcaklık sabit kalır.\n* **Kaynama:** Sıcaklık sabit kalır.\n* **Önemli:** Hal değiştirirken maddenin sıcaklığı ASLA değişmez! Aldığı enerjiyi bağları koparmak için kullanır.\n\n### 3. Genleşme\nIsınan maddeler genleşir (hacmi büyür), soğuyan maddeler büzülür. Tren raylarının arasında boşluk bırakılmasının sebebi yazın genleşip bozulmaması içindir."
+  },
+  {
+    "ders": "Fizik",
+    "sira": 4,
+    "baslik": "Hareket ve Kuvvet",
+    "icerik": "# Hız mı, Sürat mi? Newton'un Yasaları\n\n### 1. Hız ve Sürat Farkı\n* **Sürat (Skaler):** Alınan Yol / Zaman. (Arabanın kadranındaki değer).\n* **Hız (Vektörel):** Yer Değiştirme / Zaman. (Kuş bakışı mesafe).\n\n### 2. Newton'un Hareket Yasaları\n1.  **Eylemsizlik:** Bir cisme kuvvet etki etmiyorsa duruyorsa durur, gidiyorsa sabit hızla gider. (Otobüs fren yapınca öne savrulmamız).\n2.  **Temel Yasa (F=m.a):** Net kuvvet varsa ivme (hızlanma) vardır.\n3.  **Etki-Tepki:** Her etkiye eşit ve zıt yönlü bir tepki vardır. (Duvara yumruk atarsan elin acır)."
+  },
+  {
+    "ders": "Fizik",
+    "sira": 5,
+    "baslik": "İş, Güç ve Enerji",
+    "icerik": "# Enerji Yoktan Var Edilemez\n\n### 1. İş (W = F.x)\nFiziksel anlamda iş yapmak için cisme kuvvet uygulayıp onu hareket ettirmelisin. Duvarı iten adam yorulur ama İŞ YAPMAZ (Duvar hareket etmedi).\n\n### 2. Enerji Çeşitleri\n* **Kinetik Enerji:** Hareket enerjisi (Hızı olan her şeyde var).\n* **Potansiyel Enerji:** Yükseklik enerjisi (Barajdaki su, daldaki elma).\n* **Mekanik Enerji:** Kinetik + Potansiyel toplamıdır. Sürtünme yoksa korunur."
+  },
+  {
+    "ders": "Fizik",
+    "sira": 6,
+    "baslik": "Basınç ve Kaldırma Kuvveti",
+    "icerik": "# Neden Batarız? Arşimet Prensibi\n\n### 1. Basınç\nBirim yüzeye etki eden dik kuvvettir. (P = F/A).\n* Katılar basıncı aynen iletmez (Kuvveti iletir), Sıvılar basıncı her yöne aynen iletir (Pascal Prensibi - Hidrolik frenler).\n\n### 2. Kaldırma Kuvveti\nSıvı, içine batan cisme yukarı yönlü kuvvet uygular. \n* **Yüzen Cisim:** Kaldırma Kuvveti = Ağırlık.\n* **Batan Cisim:** Kaldırma Kuvveti < Ağırlık.\n* Mantık: Cisim ne kadar sıvı taşırıyorsa o kadar kaldırma kuvveti uygulanır."
+  },
+  {
+    "ders": "Fizik",
+    "sira": 7,
+    "baslik": "Elektrik ve Manyetizma (Seçici Konu)",
+    "icerik": "# Ampul Neden Yanmaz? Devreler\n\nBiraz karmaşık gelebilir, temelini bil yeter.\n* **Akım (I):** Yüklerin hareketidir.\n* **Direnç (R):** Akıma karşı gösterilen zorluktur.\n* **Ohm Kanunu (V = I.R):** Fiziğin en meşhur formülüdür. Voltaj artarsa akım da artar.\n* **Lambalar:** Lambanın parlaklığı Güç (P) ile orantılıdır. Pilden ne kadar çok akım çekerse o kadar parlak yanar ama pil çabuk biter."
+  },
+  {
+    "ders": "Fizik",
+    "sira": 8,
+    "baslik": "Dalgalar (Deprem, Su, Ses)",
+    "icerik": "# Titreşim ve Enerji\n\nDalgalar enerji taşır, madde taşımaz!\n* **Enine Dalga:** Yılan gibi kıvrılarak giden (Elektromanyetik dalgalar, Yay).\n* **Boyuna Dalga:** Akordeon gibi sıkışıp gevşeyen (Ses dalgası).\n* **Deprem:** P ve S dalgaları vardır. Önce P (Öncü) gelir, sonra S (Yıkıcı) gelir."
+  },
+  {
+    "ders": "Fizik",
+    "sira": 9,
+    "baslik": "Optik (Işık, Aynalar, Mercekler)",
+    "icerik": "# Görüntü Nasıl Oluşur?\n\nTYT'nin en uzun konusudur ama her sene kesin çıkar.\n* **Yansıma:** Işığın çarpıp geri dönmesi.\n* **Düz Ayna:** Görüntü simetriktir, boyu eşittir. (Evdeki ayna).\n* **Çukur Ayna:** Görüntüyü büyütebilir (Makyaj aynası, Dişçi aynası).\n* **Tümsek Ayna:** Görüntüyü küçültür ama geniş alanı gösterir (Otopark aynası, Mağaza güvenlik aynası).\n* **Kırılma:** Işık az yoğun ortamdan çok yoğun ortama geçerken (Havadan Suya) normale yaklaşır. Bu yüzden havuzun dibini daha yakında görürüz."
+  }
+]
 }
